@@ -2,6 +2,8 @@ import { Outlet } from 'react-router-dom'
 import cls from './MainLayuot.module.scss'
 import { Header } from '../../../components/Header'
 import { useTheme } from '../../../hooks/useTheme'
+import {Footer} from '../../../components/Footer'
+import {Navbar} from '../../../components/Navbar'
 
 
 export const MainLayout = () => {
@@ -13,7 +15,7 @@ export const MainLayout = () => {
         <main className={cls.main}>
             <div className={cls.container}>
                 <div className={cls.body}>
-                    <p>NavBar</p>
+                    <Navbar/>
 
 
                     <Outlet/>
@@ -21,7 +23,7 @@ export const MainLayout = () => {
             </div>
         </main>
 
-        <p>Footer</p>
+       <Footer/>
     </div>
   )
 }
