@@ -7,29 +7,18 @@ import { MainLayout } from './layuots/MainLayout';
 import './assets/styles/index.scss';
 import { ThemeProvider } from './providers/ThemeProvider';
 import { Theme } from './const/theme';
+import { Suspense } from 'react';
+import { routerNavigations } from './const/router';
+
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
-    children: [
-      {
-        path: "/",
-        element: <div>Home</div>,
-      },
-      {
-        path: "/pizzas",
-        element: <div>Pizzas</div>,
-      },
-      {
-        path: "/rolls",
-        element: <div>Rolls</div>,
-      },
-      {
-        path: "/others",
-        element: <div>Others</div>,
-      },
-    ],
+    children: routerNavigations.map(({path, element}) => ({
+      path,
+      element: <Suspense fallback={<div>loading..</div>}>{element}</Suspense>,
+    }))
   },
 ]);
 

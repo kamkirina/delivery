@@ -1,0 +1,1 @@
+export {OtherPageAsync as OtherPage} from './ui/OtherPage.async'
